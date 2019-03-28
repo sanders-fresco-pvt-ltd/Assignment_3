@@ -19,6 +19,10 @@ node('maven-label') {
       }
    }
    
+   stage('Build') {
+      sh ""
+   }
+   
    stage('Code Review') {
       sh ""
    }
