@@ -1,5 +1,6 @@
 node('maven-label') {
    def mvnHome
+
    stage('Preparation') { // for display purposes
       // Get some code from a GitHub repository
      git 'https://github.com/sanders-fresco-pvt-ltd/Assignment_3.git' 
@@ -8,7 +9,8 @@ node('maven-label') {
       // **       in the global configuration.           
       mvnHome = tool 'M3'
    }
-   stage('Build') {
+   
+   stage('Compile') {
       // Run the maven build
       if (isUnix()) {
          sh "echo 'this was a semi-succesfull run'"
@@ -16,8 +18,21 @@ node('maven-label') {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
    }
-   stage('Results') {
-      junit '**/target/surefire-reports/TEST-*.xml'
-      archive 'target/*.jar'
+   
+   stage('Code Review') {
+      sh ""
    }
+   
+   stage('Unit Test') {
+      sh ""
+   }
+
+   stage('Package') {
+      sh ""
+   }
+   stage('Deploy') {
+      sh ""
+   }
+
+
 }
