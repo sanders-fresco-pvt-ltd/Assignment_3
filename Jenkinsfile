@@ -39,7 +39,7 @@ node('maven-label') {
       sh 'ifconfig'
       sh 'pwd'
       
-      sh 'scp /target/JenkinsWar.war root@192.168.32.20:/var/lib/tomcat7/webapps'
+      sh 'scp /home/vagrant/jenkins-agent/workspace/Example_Mvn/target/JenkinsWar.war root@192.168.32.20:/var/lib/tomcat7/webapps'
    }
 
 
