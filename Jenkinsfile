@@ -34,11 +34,7 @@ node('maven-label') {
    stage('Package') {
       sh ""
    }
-   stage('Deploy') {
-
-      sh 'ifconfig'
-      sh 'pwd'
-      
+   stage('Deploy') {      
       sh 'scp /home/vagrant/jenkins-agent/workspace/Example_Mvn/target/JenkinsWar.war root@192.168.32.20:/var/lib/tomcat7/webapps'
    }
 
