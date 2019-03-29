@@ -35,9 +35,11 @@ node('maven-label') {
       sh ""
    }
    stage('Deploy') {
-   //    sh 'scp target/*.war root@192.168.32.20:/var/lib/tomcat7/webapps'
+
       sh 'ifconfig'
       sh 'pwd'
+      
+      sh 'scp /target/*.war root@192.168.32.20:/var/lib/tomcat7/webapps'
    }
 
 
