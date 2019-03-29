@@ -6,16 +6,7 @@
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>JenkinsWar Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-
-  <plugin>
-    <artifactId>maven-war-plugin</artifactId>
-    <version>2.6</version>
-    <configuration>
-      <failOnMissingWebXml>false</failOnMissingWebXml>
-    </configuration>
-  </plugin>
-  
+  <url>http://maven.apache.org</url>  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -24,8 +15,10 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  
   <build>
     <finalName>JenkinsWar</finalName>
   </build>
+  <properties>
+    <failOnMissingWebXml>false</failOnMissingWebXml>   
+  </properties>
 </project>
