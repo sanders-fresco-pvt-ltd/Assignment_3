@@ -13,14 +13,14 @@ node('maven-label') {
    stage('Compile') {
       // Run the maven build
       if (isUnix()) {
-         sh "echo 'this was a semi-succesfull run'"
+      sh "echo 'this was a semi-succesfull run'"     
       } else {
          bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
       }
    }
    
    stage('Build') {
-      sh ""
+      sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
    }
    
    stage('Code Review') {
