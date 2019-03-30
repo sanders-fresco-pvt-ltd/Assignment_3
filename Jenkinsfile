@@ -10,31 +10,23 @@ node('maven-label') {
       mvnHome = tool 'M3'
    }
    
-   stage('Compile') {
-      // Run the maven build
-      if (isUnix()) {
-      sh "echo 'this was a semi-succesfull run'"     
-      } else {
-         bat(/"${mvnHome}\bin\mvn" -Dmaven.test.failure.ignore clean package/)
-      }
-   }
-   
    stage('Build') {
       sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean package"
    }
    
    stage('Code Review') {
-      sh ""
+      sh "echo do some review"
    }
    
    stage('Unit Test') {
-      sh ""
+      sh "echo do some tests"
    }
 
    stage('Package') {
-      sh ""
+      sh "echo do some packaging"
    }
    stage('Deploy') {      
+      //Copy the generated JenkinsWar file, on the Jenkins-Slave server, on to the Tomcat server 
       sh 'scp /home/vagrant/jenkins-agent/workspace/Example_Mvn/target/JenkinsWar.war root@192.168.32.20:/var/lib/tomcat7/webapps'
    }
 
